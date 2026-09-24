@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  background-color: #eeeeee;
+  color: #32653e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+}
+
+.page {
+  width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #7896bb;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #aaaaaa;
+}
+
+.header img {
+  width: 390px;
+}
+
+.menu a {
+  margin: 0 10px;
+  color: #385b98;
+  font-size: 14px;
+}
+
+.content h1 {
+  color: #94742c;
+  font-size: 28px;
+}
+
+.content h2 {
+  color: #94742c;
+  font-size: 20px;
+}
+
+.columns {
+  width: 100%;
+  border-spacing: 12px 0;
+}
+
+.columns td {
+  vertical-align: top;
+}
+
+.products {
+  width: 60%;
+}
+
+.products ul {
+  padding-left: 25px;
+  list-style: circle url("../hinh/Apple.jpg") outside;
+}
+
+.products li {
+  margin-bottom: 10px;
+}
+
+.products b {
+  color: #9a2424;
+}
+
+.marathon {
+  width: 40%;
+  padding: 12px;
+  background-color: #fff3bd;
+  border: 1px solid #c3a94d;
+}
+
+.marathon h2 {
+  margin-top: 5px;
+}
+
+.marathon img {
+  float: right;
+  width: 110px;
+  margin: 0 0 8px 10px;
+}
+
+.comments {
+  padding-top: 10px;
+}
+
+.quote {
+  margin: 10px 25px;
+  padding: 8px;
+  background-color: #e5e9e5;
+}
+
+.footer {
+  margin-top: 18px;
+  border-top: 2px solid #aaaaaa;
+  font-style: italic;
+}
