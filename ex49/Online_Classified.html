@@ -1,0 +1,292 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Classifieds Search Form</title>
+
+        <style>
+            body {
+                font-family: "Times New Roman", serif;
+                font-size: 16px;
+            }
+
+            .container {
+                width: 600px;
+                margin: 20px auto;
+                padding: 10px;
+                background-color: #ccffff;
+                border-left: 2px solid blue;
+                border-right: 2px solid blue;
+                border-top: 1px solid #999;
+                border-bottom: 1px solid #999;
+            }
+
+            h1 {
+                color: red;
+                font-size: 26px;
+                margin: 12px 0 20px;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid #999;
+            }
+
+            h3 {
+                font-size: 16px;
+                margin: 20px 0;
+            }
+
+            table {
+                border-spacing: 6px 3px;
+            }
+
+            td {
+                white-space: nowrap;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                margin: 0 3px 0 0;
+                vertical-align: middle;
+            }
+
+            input[type="text"] {
+                box-sizing: border-box;
+                height: 24px;
+                border: 1px solid #aaa;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            }
+
+            .date-input {
+                width: 155px;
+            }
+
+            .keywords {
+                width: 545px;
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin: 25px 0 40px 5px;
+            }
+
+            .image-button {
+                border: none;
+                padding: 0;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .image-button img,
+            .actions a img {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Online Classifieds Search Form</h1>
+
+            <hr>
+
+            <form id="searchForm" onsubmit="searchClassified(event)">
+                <h3>1) Search for a classified in the following sections:</h3>
+
+                <table>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="Employment">
+                                Employment
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="Personal">
+                                Personal
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="For Sale" checked>
+                                For Sale
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="Miscellaneous">
+                                Miscellaneous
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="Housing">
+                                Housing
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="radio" name="section"
+                                    value="All of the above">
+                                All of the above
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>2) Search the following publications:</h3>
+
+                <table>
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Midwest times" checked>
+                                Midwest times
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Modern News">
+                                Modern News
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Employment Today">
+                                Employment Today
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Great Lakes Classifieds" checked>
+                                Great Lakes Classifieds
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Middleton Daily">
+                                Middleton Daily
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="publication"
+                                    value="Cashtown Daily News">
+                                Cashtown Daily News
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>
+                    <label for="fromDate">3) From</label>
+                    to
+                    <input type="text" id="fromDate" name="fromDate"
+                        class="date-input" placeholder="mm/dd/yy">
+
+                    <label for="toDate" style="font-weight: normal;">to</label>
+                    <input type="text" id="toDate" name="toDate"
+                        class="date-input" placeholder="mm/dd/yy">.
+                </h3>
+
+                <h3>
+                    <label for="keywords">
+                        4) Enter a few keywords to describe the classified.
+                    </label>
+                </h3>
+
+                <input type="text" id="keywords" name="keywords"
+                    class="keywords">
+
+                <h3>5) Click one of the options below:</h3>
+
+                <div class="actions">
+                    <button type="submit" class="image-button">
+                        <img src="hinh/Search.gif" alt="Search">
+                    </button>
+
+                    <a href="Help.html" target="_blank">
+                        <img src="hinh/Help.gif" alt="Help">
+                    </a>
+
+                    <button type="button" class="image-button"
+                            onclick="clearForm()">
+                        <img src="hinh/Cancel.gif" alt="Cancel">
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            function searchClassified(event) {
+                event.preventDefault();
+
+                const form = document.getElementById("searchForm");
+                const selectedSection =
+                    form.querySelector('input[name="section"]:checked');
+
+                const publications = Array.from(
+                    form.querySelectorAll('input[name="publication"]:checked')
+                ).map(function (item) {
+                    return item.value;
+                });
+
+                const fromDate = document.getElementById("fromDate").value;
+                const toDate = document.getElementById("toDate").value;
+                const keywords = document.getElementById("keywords").value;
+
+                alert(
+                    "Giả lập tìm kiếm\n\n" +
+                    "Chuyên mục: " +
+                    (selectedSection ? selectedSection.value : "Chưa chọn") +
+                    "\nẤn phẩm: " +
+                    (publications.length ? publications.join(", ") : "Chưa chọn") +
+                    "\nTừ ngày: " + fromDate +
+                    "\nĐến ngày: " + toDate +
+                    "\nTừ khóa: " + keywords
+                );
+            }
+
+            function clearForm() {
+                const form = document.getElementById("searchForm");
+
+                form.querySelectorAll('input[type="text"]')
+                    .forEach(function (input) {
+                        input.value = "";
+                    });
+
+                form.querySelectorAll(
+                    'input[type="radio"], input[type="checkbox"]'
+                ).forEach(function (input) {
+                    input.checked = false;
+                });
+
+                document.getElementById("fromDate").focus();
+            }
+        </script>
+    </body>
+</html>

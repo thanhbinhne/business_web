@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jackson Electronics - Registration Form</title>
+
+    <style>
+        body {
+            background-color: #99ccff;
+            font-family: "Times New Roman", serif;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header img {
+            width: 260px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 25px 0 18px;
+        }
+
+        .header p {
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 0 4px;
+        }
+
+        td {
+            vertical-align: top;
+        }
+
+        .label {
+            width: 160px;
+            white-space: nowrap;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            box-sizing: border-box;
+            border: 1px solid #999;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        input[type="text"] {
+            height: 21px;
+        }
+
+        .name-input {
+            width: 105px;
+        }
+
+        .address-input {
+            width: 185px;
+        }
+
+        .medium-input {
+            width: 130px;
+        }
+
+        .state-input {
+            width: 38px;
+        }
+
+        .zip-input {
+            width: 65px;
+        }
+
+        .name-row,
+        .city-row {
+            white-space: nowrap;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 3px 0;
+        }
+
+        .options label {
+            white-space: nowrap;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0 3px 0 0;
+            vertical-align: middle;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #888;
+            margin: 8px 0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 90px;
+            resize: vertical;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 3px;
+        }
+
+        .buttons button {
+            font-size: 12px;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="hinh/Jackson.gif" alt="Jackson Electronics">
+
+            <h2>Registration Form</h2>
+
+            <p>Register your Jackson Electronics product here</p>
+        </div>
+
+        <form id="registrationForm" onsubmit="registerProduct(event)">
+            <table>
+                <tr>
+                    <td class="label">
+                        <label for="firstName">First Name:</label>
+                    </td>
+                    <td class="name-row">
+                        <input type="text" id="firstName"
+                               name="firstName" class="name-input">
+
+                        <label for="lastName">Last Name:</label>
+
+                        <input type="text" id="lastName"
+                               name="lastName" class="name-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="address1">Address #1:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="address1"
+                               name="address1" class="address-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="address2">Address #2:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="address2"
+                               name="address2" class="address-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="city">City:</label>
+                    </td>
+                    <td class="city-row">
+                        <input type="text" id="city"
+                               name="city" class="medium-input">
+
+                        <label for="state">State:</label>
+                        <input type="text" id="state"
+                               name="state" class="state-input">
+
+                        <label for="zip">Zip:</label>
+                        <input type="text" id="zip"
+                               name="zip" class="zip-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="country">Country:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="country"
+                               name="country" value="United States"
+                               class="medium-input">
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <table>
+                <tr>
+                    <td class="label">
+                        <label for="product">Product:</label>
+                    </td>
+                    <td>
+                        <select id="product" name="product">
+                            <option value="ScanMaster">ScanMaster</option>
+                            <option value="Printer">Printer</option>
+                            <option value="Monitor">Monitor</option>
+                            <option value="Keyboard">Keyboard</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="datePurchased">Date Purchased:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="datePurchased"
+                               name="datePurchased" class="medium-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">
+                        <label for="serial">Serial #:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="serial"
+                               name="serial" class="medium-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">Used for:</td>
+                    <td>
+                        <div class="options">
+                            <label>
+                                <input type="radio" name="usedFor"
+                                       value="Home">
+                                Home
+                            </label>
+
+                            <label>
+                                <input type="radio" name="usedFor"
+                                       value="Educational Institution">
+                                Educational Institution
+                            </label>
+
+                            <label>
+                                <input type="radio" name="usedFor"
+                                       value="Business" checked>
+                                Business
+                            </label>
+
+                            <label>
+                                <input type="radio" name="usedFor"
+                                       value="Other">
+                                Other
+                            </label>
+
+                            <label>
+                                <input type="radio" name="usedFor"
+                                       value="Government">
+                                Government
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">System (check all that apply):</td>
+                    <td>
+                        <div class="options">
+                            <label>
+                                <input type="checkbox" name="system"
+                                       value="Windows">
+                                Windows
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="system"
+                                       value="UNIX">
+                                UNIX
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="system"
+                                       value="Macintosh">
+                                Macintosh
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="system"
+                                       value="Other">
+                                Other
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <table>
+                <tr>
+                    <td class="label">
+                        <label for="comments">Comments?:</label>
+                    </td>
+                    <td>
+                        <textarea id="comments" name="comments"></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttons">
+                <button type="submit">Click to register</button>
+                <button type="button" onclick="clearForm()">
+                    Click to cancel
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function registerProduct(event) {
+            event.preventDefault();
+            alert("Đăng ký");
+        }
+
+        function clearForm() {
+            const form = document.getElementById("registrationForm");
+
+            form.querySelectorAll('input[type="text"], textarea')
+                .forEach(function (field) {
+                    field.value = "";
+                });
+
+            form.querySelectorAll(
+                'input[type="radio"], input[type="checkbox"]'
+            ).forEach(function (field) {
+                field.checked = false;
+            });
+
+            document.getElementById("product").selectedIndex = -1;
+            document.getElementById("firstName").focus();
+        }
+    </script>
+</body>
+</html>
