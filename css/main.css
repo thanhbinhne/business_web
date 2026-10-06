@@ -4,14 +4,30 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
 #container {
     width: 100%;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 10;
     background: #1e3a5f;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-
-#container ul {
+/* Menu chính */
+#container > ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -37,7 +53,7 @@
     background: #3178b9;
 }
 
-
+/* Dropdown */
 #container li ul {
     position: absolute;
     top: 100%;
@@ -50,7 +66,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-#container li:hover > ul {
+#container li:hover > ul,
+#container li:focus-within > ul {
     display: block;
 }
 
@@ -61,4 +78,20 @@
 
 #container li ul li:last-child {
     border-bottom: none;
+}
+
+/* Dropdown cuối cùng không tràn ra mép phải */
+#container > ul > li:last-child > ul {
+    left: auto;
+    right: 0;
+}
+
+/* Nội dung hiển thị bên dưới header */
+#noiDung {
+    display: block;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border: none;
+    background: #ffffff;
 }
