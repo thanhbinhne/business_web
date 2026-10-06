@@ -1,295 +1,292 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Expense Report</title>
-
-    <style>
-        body {
-            font-family: "Times New Roman", serif;
-            font-size: 14px;
-        }
-
-        .container {
-            width: 650px;
-            max-width: 100%;
-            height: 600px;
-            padding: 8px;
-            margin: 20px auto;
-            border: 2px solid blue;
-            background-color: #ccffff;
-            overflow-y: scroll;
-            box-sizing: border-box;
-        }
-
-        .logo {
-            text-align: center;
-        }
-
-        .logo img {
-            width: 410px;
-            max-width: 100%;
-            height: 80px;
-        }
-
-        h2 {
-            font-size: 22px;
-        }
-
-        input,
-        select,
-        textarea,
-        button {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-        }
-
-        .name {
-            width: 105px;
-        }
-
-        .ssn {
-            width: 60px;
-        }
-
-        textarea {
-            width: 390px;
-            max-width: 100%;
-            height: 55px;
-        }
-
-        table {
-            width: 520px;
-            max-width: 100%;
-            border: 1px solid gray;
-            border-spacing: 2px;
-        }
-
-        th,
-        td {
-            border: 1px solid gray;
-            text-align: center;
-        }
-
-        .date {
-            width: 65px;
-        }
-
-        .description {
-            width: 150px;
-        }
-
-        .category {
-            width: 95px;
-        }
-
-        .amount {
-            width: 40px;
-        }
-
-        button {
-            cursor: pointer;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <div class="logo">
-            <img src="hinh/DeLong.jpg" alt="DeLong Enterprises">
+    <head>
+        <title>Travel Expense Report</title>
+    
+        <style>
+            body {
+                font-family: "Times New Roman", serif;
+                font-size: 14px;
+            }
+    
+            .container {
+                width: 650px;
+                max-width: 100%;
+                height: 600px;
+                padding: 8px;
+                margin: 20px auto;
+                border: 2px solid blue;
+                background-color: #ccffff;
+                overflow-y: scroll;
+                box-sizing: border-box;
+            }
+    
+            .logo {
+                text-align: center;
+            }
+    
+            .logo img {
+                width: 410px;
+                max-width: 100%;
+                height: 80px;
+            }
+    
+            h2 {
+                font-size: 22px;
+            }
+    
+            input,
+            select,
+            textarea,
+            button {
+                font-family: Arial, sans-serif;
+                font-size: 12px;
+            }
+    
+            .name {
+                width: 105px;
+            }
+    
+            .ssn {
+                width: 60px;
+            }
+    
+            textarea {
+                width: 390px;
+                max-width: 100%;
+                height: 55px;
+            }
+    
+            table {
+                width: 520px;
+                max-width: 100%;
+                border: 1px solid gray;
+                border-spacing: 2px;
+            }
+    
+            th,
+            td {
+                border: 1px solid gray;
+                text-align: center;
+            }
+    
+            .date {
+                width: 65px;
+            }
+    
+            .description {
+                width: 150px;
+            }
+    
+            .category {
+                width: 95px;
+            }
+    
+            .amount {
+                width: 40px;
+            }
+    
+            button {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="logo">
+                <img src="hinh/DeLong.jpg" alt="DeLong Enterprises">
+            </div>
+    
+            <h2>Travel Expense Report</h2>
+            <hr>
+    
+            <form onsubmit="return submitReport()">
+                <p>
+                    1) <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName"
+                           name="firstName" class="name">
+    
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName"
+                           name="lastName" class="name">
+                </p>
+    
+                <p>
+                    2) <label for="ssn">Social Security Number:</label>
+                    <input type="text" id="ssn" name="ssn" class="ssn">
+                </p>
+    
+                <p>
+                    3) <label for="department">Department:</label>
+                    <select id="department" name="department">
+                        <option value="Accounting">Accounting</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </p>
+    
+                <p>
+                    4) <label for="purpose">
+                        Describe the purpose of your trip.
+                    </label>
+                </p>
+    
+                <textarea id="purpose" name="purpose"></textarea>
+    
+                <p>5) Itemize your travel expenses</p>
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" name="date1"
+                                       class="date" placeholder="mm/dd/yy"
+                                       aria-label="Date 1">
+                            </td>
+                            <td>
+                                <input type="text" name="description1"
+                                       class="description"
+                                       aria-label="Description 1">
+                            </td>
+                            <td>
+                                <select name="category1" class="category"
+                                        aria-label="Category 1">
+                                    <option>Meal</option>
+                                    <option>Transportation</option>
+                                    <option>Lodging</option>
+                                    <option>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="amount1"
+                                       class="amount" inputmode="decimal"
+                                       aria-label="Amount 1">
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>
+                                <input type="text" name="date2"
+                                       class="date" placeholder="mm/dd/yy"
+                                       aria-label="Date 2">
+                            </td>
+                            <td>
+                                <input type="text" name="description2"
+                                       class="description"
+                                       aria-label="Description 2">
+                            </td>
+                            <td>
+                                <select name="category2" class="category"
+                                        aria-label="Category 2">
+                                    <option>Meal</option>
+                                    <option>Transportation</option>
+                                    <option>Lodging</option>
+                                    <option>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="amount2"
+                                       class="amount" inputmode="decimal"
+                                       aria-label="Amount 2">
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>
+                                <input type="text" name="date3"
+                                       class="date" placeholder="mm/dd/yy"
+                                       aria-label="Date 3">
+                            </td>
+                            <td>
+                                <input type="text" name="description3"
+                                       class="description"
+                                       aria-label="Description 3">
+                            </td>
+                            <td>
+                                <select name="category3" class="category"
+                                        aria-label="Category 3">
+                                    <option>Meal</option>
+                                    <option>Transportation</option>
+                                    <option>Lodging</option>
+                                    <option>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="amount3"
+                                       class="amount" inputmode="decimal"
+                                       aria-label="Amount 3">
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td>
+                                <input type="text" name="date4"
+                                       class="date" placeholder="mm/dd/yy"
+                                       aria-label="Date 4">
+                            </td>
+                            <td>
+                                <input type="text" name="description4"
+                                       class="description"
+                                       aria-label="Description 4">
+                            </td>
+                            <td>
+                                <select name="category4" class="category"
+                                        aria-label="Category 4">
+                                    <option>Meal</option>
+                                    <option>Transportation</option>
+                                    <option>Lodging</option>
+                                    <option>Other</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="amount4"
+                                       class="amount" inputmode="decimal"
+                                       aria-label="Amount 4">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <p>
+                    6) Have you submitted your receipts?
+    
+                    <label>
+                        <input type="radio" name="receipts" value="Yes">
+                        Yes
+                    </label>
+    
+                    <label>
+                        <input type="radio" name="receipts" value="No">
+                        No
+                    </label>
+                </p>
+    
+                <button type="submit">Submit travel expenses</button>
+                <button type="reset">Reset</button>
+    
+                <p>
+                    Questions? Contact Debbie Larson in Accounting
+                    (ext. 2150).
+                </p>
+            </form>
         </div>
-
-        <h2>Travel Expense Report</h2>
-        <hr>
-
-        <form onsubmit="return submitReport()">
-            <p>
-                1) <label for="firstName">First Name:</label>
-                <input type="text" id="firstName"
-                       name="firstName" class="name">
-
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName"
-                       name="lastName" class="name">
-            </p>
-
-            <p>
-                2) <label for="ssn">Social Security Number:</label>
-                <input type="text" id="ssn" name="ssn" class="ssn">
-            </p>
-
-            <p>
-                3) <label for="department">Department:</label>
-                <select id="department" name="department">
-                    <option value="Accounting">Accounting</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Human Resources">Human Resources</option>
-                    <option value="IT">IT</option>
-                </select>
-            </p>
-
-            <p>
-                4) <label for="purpose">
-                    Describe the purpose of your trip.
-                </label>
-            </p>
-
-            <textarea id="purpose" name="purpose"></textarea>
-
-            <p>5) Itemize your travel expenses</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>
-                            <input type="text" name="date1"
-                                   class="date" placeholder="mm/dd/yy"
-                                   aria-label="Date 1">
-                        </td>
-                        <td>
-                            <input type="text" name="description1"
-                                   class="description"
-                                   aria-label="Description 1">
-                        </td>
-                        <td>
-                            <select name="category1" class="category"
-                                    aria-label="Category 1">
-                                <option>Meal</option>
-                                <option>Transportation</option>
-                                <option>Lodging</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="amount1"
-                                   class="amount" inputmode="decimal"
-                                   aria-label="Amount 1">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="text" name="date2"
-                                   class="date" placeholder="mm/dd/yy"
-                                   aria-label="Date 2">
-                        </td>
-                        <td>
-                            <input type="text" name="description2"
-                                   class="description"
-                                   aria-label="Description 2">
-                        </td>
-                        <td>
-                            <select name="category2" class="category"
-                                    aria-label="Category 2">
-                                <option>Meal</option>
-                                <option>Transportation</option>
-                                <option>Lodging</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="amount2"
-                                   class="amount" inputmode="decimal"
-                                   aria-label="Amount 2">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="text" name="date3"
-                                   class="date" placeholder="mm/dd/yy"
-                                   aria-label="Date 3">
-                        </td>
-                        <td>
-                            <input type="text" name="description3"
-                                   class="description"
-                                   aria-label="Description 3">
-                        </td>
-                        <td>
-                            <select name="category3" class="category"
-                                    aria-label="Category 3">
-                                <option>Meal</option>
-                                <option>Transportation</option>
-                                <option>Lodging</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="amount3"
-                                   class="amount" inputmode="decimal"
-                                   aria-label="Amount 3">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="text" name="date4"
-                                   class="date" placeholder="mm/dd/yy"
-                                   aria-label="Date 4">
-                        </td>
-                        <td>
-                            <input type="text" name="description4"
-                                   class="description"
-                                   aria-label="Description 4">
-                        </td>
-                        <td>
-                            <select name="category4" class="category"
-                                    aria-label="Category 4">
-                                <option>Meal</option>
-                                <option>Transportation</option>
-                                <option>Lodging</option>
-                                <option>Other</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="text" name="amount4"
-                                   class="amount" inputmode="decimal"
-                                   aria-label="Amount 4">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>
-                6) Have you submitted your receipts?
-
-                <label>
-                    <input type="radio" name="receipts" value="Yes">
-                    Yes
-                </label>
-
-                <label>
-                    <input type="radio" name="receipts" value="No">
-                    No
-                </label>
-            </p>
-
-            <button type="submit">Submit travel expenses</button>
-            <button type="reset">Reset</button>
-
-            <p>
-                Questions? Contact Debbie Larson in Accounting
-                (ext. 2150).
-            </p>
-        </form>
-    </div>
-
-    <script>
-        function submitReport() {
-            alert("Đã submit báo cáo chi phí chuyến đi!");
-            return false;
-        }
-    </script>
-</body>
+    
+        <script>
+            function submitReport() {
+                alert("Đã submit báo cáo chi phí chuyến đi!");
+                return false;
+            }
+        </script>
+    </body>
 </html>
